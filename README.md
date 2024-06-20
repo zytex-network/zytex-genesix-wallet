@@ -1,20 +1,20 @@
 # Genesix
 
-Genesix is a multiplatform mobile wallet for the XELIS network. Built using the Flutter framework, it provides a convenient and secure way to manage your XELIS cryptocurrency assets.
+Genesix is a multiplatform mobile wallet for the ZYTEX network. Built using the Flutter framework, it provides a convenient and secure way to manage your ZYTEX cryptocurrency assets.
 
-This wallet harnesses the power of Rust by incorporating a native Rust library from the XELIS blockchain, ensuring the same level of security as the XELIS Wallet CLI.
+This wallet harnesses the power of Rust by incorporating a native Rust library from the ZYTEX blockchain, ensuring the same level of security as the ZYTEX Wallet CLI.
 
 ## Features
 
-- Securely store and manage your XELIS tokens
+- Securely store and manage your ZYTEX tokens
 - View your account balance and transaction history
-- Send and receive XELIS tokens easily
+- Send and receive ZYTEX tokens easily
 - Support for multiple platforms, including:
-  - iOS
-  - Android
   - Windows
   - macOS
-  - Linux
+  
+
+ - [Use Release](https://gitlab.com/zytex/wallet-beta/-/releases)
 
 ## Installation
 
@@ -29,18 +29,12 @@ Follow the steps below to install and run Genesix on your desired platform.
 ### Clone the Repository
 
 ```
-git clone https://github.com/xelis-project/xelis-genesix-wallet.git
+git clone https://gitlab.com/zytex/wallet-beta.git
 ```
 
 ### Build and Run
 
-1. Navigate to the cloned repository:
-
-```
-cd xelis-genesix-wallet
-```
-
-2. Install the required dependencies and generate glue code:
+1. Install the required dependencies and generate glue code:
 
 ```
 just init
@@ -59,11 +53,3 @@ flutter build <platform>
 ```
 
 For platform-specific instructions and additional configuration steps, please refer to the documentation available by following the links provided.
-
-## License
-
-Genesix is open source and licensed under the [MIT License](LICENSE). Feel free to modify and distribute the application as per the terms of the license.
-
-## Contact
-
-For any questions or inquiries, please contact the XELIS team on [Discord](https://discord.gg/z543umPUdj).

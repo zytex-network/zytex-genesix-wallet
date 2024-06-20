@@ -64,7 +64,7 @@ class NodeInfoWidget extends ConsumerWidget {
         SelectableText(
           switch (info?.circulatingSupply) {
             null => '...',
-            String() => '${info?.circulatingSupply} XEL',
+            String() => '${info?.circulatingSupply} ZTX',
           },
           style: context.titleLarge,
         ),
@@ -75,7 +75,7 @@ class NodeInfoWidget extends ConsumerWidget {
         ),
         SelectableText(
           info?.blockReward.toString() != null
-              ? '${formatXelis(info!.blockReward)} XEL'
+              ? '${formatXelis(info!.blockReward)} ZTX'
               : '...',
           style: context.titleLarge,
         ),

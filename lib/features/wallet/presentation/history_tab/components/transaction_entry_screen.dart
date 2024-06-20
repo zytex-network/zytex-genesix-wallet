@@ -153,7 +153,7 @@ class _TransactionEntryScreenState
                   Text(loc.amount, style: context.headlineSmall),
                   const SizedBox(height: Spaces.small),
                   SelectableText(
-                    '+${formatXelis(coinbase!.reward)} XEL',
+                    '+${formatXelis(coinbase!.reward)} ZTX',
                     // hmm coinbase could return other asset than XELIS
                     style: context.bodyLarge!
                         .copyWith(color: context.moreColors.mutedColor),
@@ -170,7 +170,7 @@ class _TransactionEntryScreenState
                   Text(loc.burn, style: context.headlineSmall),
                   const SizedBox(height: Spaces.small),
                   SelectableText(
-                    '-${formatXelis(burn!.amount)} XEL',
+                    '-${formatXelis(burn!.amount)} ZTX',
                     style: context.bodyLarge!
                         .copyWith(color: context.moreColors.mutedColor),
                   ),
@@ -183,7 +183,7 @@ class _TransactionEntryScreenState
               Text(loc.fee, style: context.headlineSmall),
               const SizedBox(height: Spaces.small),
               SelectableText(
-                '${formatXelis(outgoing!.fee)} XEL',
+                '${formatXelis(outgoing!.fee)} ZTX',
                 style: context.bodyLarge!
                     .copyWith(color: context.moreColors.mutedColor),
               ),
@@ -244,7 +244,7 @@ class _TransactionEntryScreenState
                                               style: context.labelLarge),
                                           SelectableText(
                                               transfer.asset == sdk.xelisAsset
-                                                  ? 'XELIS'
+                                                  ? 'ZYTEX'
                                                   : transfer.asset),
                                         ],
                                       ),
@@ -260,7 +260,7 @@ class _TransactionEntryScreenState
                                               style: context.labelLarge),
                                           SelectableText(transfer.asset ==
                                                   sdk.xelisAsset
-                                              ? '-${formatXelis(transfer.amount)} XEL'
+                                              ? '-${formatXelis(transfer.amount)} ZTX'
                                               : '${transfer.amount}'),
                                         ],
                                       ),
@@ -345,7 +345,7 @@ class _TransactionEntryScreenState
                                           style: context.labelLarge),
                                       SelectableText(
                                           transfer.asset == sdk.xelisAsset
-                                              ? 'XELIS'
+                                              ? 'ZYTEX'
                                               : transfer.asset),
                                     ],
                                   ),
@@ -361,7 +361,7 @@ class _TransactionEntryScreenState
                                           style: context.labelLarge),
                                       SelectableText(transfer.asset ==
                                               sdk.xelisAsset
-                                          ? '+${formatXelis(transfer.amount)} XEL'
+                                          ? '+${formatXelis(transfer.amount)} ZTX'
                                           : '${transfer.amount}'),
                                     ],
                                   ),

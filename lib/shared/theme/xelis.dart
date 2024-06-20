@@ -5,8 +5,8 @@ import 'package:genesix/shared/theme/more_colors.dart';
 ThemeData xelisTheme() {
   const textColor = Colors.white;
   var lineHeight = 1.2;
-  const primaryColor = Color.fromARGB(255, 122, 250, 211);
-  const secondaryColor = Color.fromARGB(255, 122, 203, 250);
+  const primaryColor = Color.fromARGB(255, 255, 255, 255);
+  const secondaryColor = Color.fromARGB(255, 120, 206, 255);
   const backgroundColor = Color.fromARGB(255, 19, 19, 19);
   var borderRadius = BorderRadius.circular(10.0);
 
@@ -34,9 +34,9 @@ ThemeData xelisTheme() {
     // EXTENSIONS
     extensions: <ThemeExtension<dynamic>>[
       MoreColors(
-        bgRadialColor1: const Color.fromARGB(255, 0, 170, 129),
-        bgRadialColor2: const Color.fromARGB(178, 5, 124, 132),
-        bgRadialColor3: const Color.fromARGB(153, 0, 170, 150),
+        bgRadialColor1: const Color.fromARGB(255, 48, 180, 217),
+        bgRadialColor2: const Color.fromARGB(178, 48, 180, 217),
+        bgRadialColor3: const Color.fromARGB(153, 48, 180, 217),
         bgRadialEndColor: const Color.fromARGB(255, 0, 0, 0),
         mutedColor: textColor.withOpacity(0.6),
       )

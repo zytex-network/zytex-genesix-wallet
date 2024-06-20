@@ -3,8 +3,8 @@ use std::path::Path;
 
 use flutter_rust_bridge::frb;
 use log::debug;
-use xelis_common::crypto::ecdlp;
-use xelis_wallet::wallet::PRECOMPUTED_TABLES_L1;
+use zytex_common::crypto::ecdlp;
+use zytex_wallet::wallet::PRECOMPUTED_TABLES_L1;
 
 use crate::api::progress_report::{add_progress_report, Report};
 

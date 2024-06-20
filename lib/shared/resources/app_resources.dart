@@ -13,15 +13,15 @@ class AppResources {
   static List<NodeAddress> mainnetNodes = [
     const NodeAddress(
       name: 'Official Seed Node #1',
-      url: 'https://$mainnetNodeURL',
+      url: 'https://node.zytex.network/',
     ),
     const NodeAddress(
       name: 'Official Seed Node #FR',
-      url: 'https://fr-node.xelis.io/',
+      url: 'https://node.zytex.network/',
     ),
     const NodeAddress(
       name: 'Official Seed Node #US',
-      url: 'https://us-node.xelis.io/',
+      url: 'https://node.zytex.network/',
     ),
   ];
 
@@ -39,8 +39,8 @@ class AppResources {
     ),
   ];
 
-  static String explorerMainnetUrl = 'https://explorer.xelis.io/';
-  static String explorerTestnetUrl = 'https://testnet-explorer.xelis.io/';
+  static String explorerMainnetUrl = 'https://explorer.zytex.network/';
+  static String explorerTestnetUrl = 'https://explorer.zytex.network/';
 
   /*static String svgIconGreenTarget =
       'https://raw.githubusercontent.com/xelis-project/xelis-assets/master/icons/svg/transparent/green.svg';

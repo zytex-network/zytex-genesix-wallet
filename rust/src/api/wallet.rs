@@ -7,16 +7,16 @@ use log::{debug, info};
 use parking_lot::RwLock;
 use serde::{Deserialize, Serialize};
 use serde_json::json;
-use xelis_common::config::{COIN_DECIMALS, XELIS_ASSET};
-use xelis_common::crypto::{Address, Hash, Hashable};
-use xelis_common::network::Network;
-use xelis_common::serializer::Serializer;
-use xelis_common::transaction::builder::{FeeBuilder, TransactionTypeBuilder, TransferBuilder};
-use xelis_common::transaction::BurnPayload;
-pub use xelis_common::transaction::Transaction;
-use xelis_common::utils::{format_coin, format_xelis};
-pub use xelis_wallet::transaction_builder::TransactionBuilderState;
-use xelis_wallet::wallet::Wallet;
+use zytex_common::config::{COIN_DECIMALS, ZYTEX_ASSET};
+use zytex_common::crypto::{Address, Hash, Hashable};
+use zytex_common::network::Network;
+use zytex_common::serializer::Serializer;
+use zytex_common::transaction::builder::{FeeBuilder, TransactionTypeBuilder, TransferBuilder};
+use zytex_common::transaction::BurnPayload;
+pub use zytex_common::transaction::Transaction;
+use zytex_common::utils::{format_coin, format_zytex};
+pub use zytex_wallet::transaction_builder::TransactionBuilderState;
+use zytex_wallet::wallet::Wallet;
 
 use crate::api::table_generation::LogProgressTableGenerationReportFunction;
 use crate::frb_generated::StreamSink;
@@ -53,9 +53,9 @@ pub fn create_xelis_wallet(
         precomputed_tables_path,
         LogProgressTableGenerationReportFunction,
     )?;
-    let xelis_wallet = Wallet::create(name, password, seed, network, precomputed_tables)?;
+    let zytex_wallet = Wallet::create(name, password, seed, network, precomputed_tables)?;
     Ok(XelisWallet {
-        wallet: xelis_wallet,
+        wallet: zytex_wallet,
         pending_transactions: RwLock::new(HashMap::new()),
     })
 }
@@ -70,9 +70,9 @@ pub fn open_xelis_wallet(
         precomputed_tables_path,
         LogProgressTableGenerationReportFunction,
     )?;
-    let xelis_wallet = Wallet::open(name, password, network, precomputed_tables)?;
+    let zytex_wallet = Wallet::open(name, password, network, precomputed_tables)?;
     Ok(XelisWallet {
-        wallet: xelis_wallet,
+        wallet: zytex_wallet,
         pending_transactions: RwLock::new(HashMap::new()),
     })
 }
@@ -123,13 +123,13 @@ impl XelisWallet {
 
     pub async fn has_xelis_balance(&self) -> Result<bool> {
         let storage = self.wallet.get_storage().read().await;
-        storage.has_balance_for(&XELIS_ASSET).await
+        storage.has_balance_for(&ZYTEX_ASSET).await
     }
 
     pub async fn get_xelis_balance(&self) -> Result<String> {
         let storage = self.wallet.get_storage().read().await;
-        let balance = storage.get_balance_for(&XELIS_ASSET).await?;
-        Ok(format_xelis(balance.amount))
+        let balance = storage.get_balance_for(&ZYTEX_ASSET).await?;
+        Ok(format_zytex(balance.amount))
     }
 
     pub async fn get_asset_balances(&self) -> Result<HashMap<String, String>> {
@@ -216,8 +216,8 @@ impl XelisWallet {
         info!("Building transaction...");
 
         let asset = match asset_hash {
-            None => XELIS_ASSET,
-            Some(value) => Hash::from_hex(value).unwrap_or(XELIS_ASSET),
+            None => ZYTEX_ASSET,
+            Some(value) => Hash::from_hex(value).unwrap_or(ZYTEX_ASSET),
         };
 
         let amount = {
@@ -407,8 +407,8 @@ impl XelisWallet {
         asset_hash: Option<String>,
     ) -> Result<String> {
         let asset = match asset_hash {
-            None => XELIS_ASSET,
-            Some(value) => Hash::from_hex(value).unwrap_or(XELIS_ASSET),
+            None => ZYTEX_ASSET,
+            Some(value) => Hash::from_hex(value).unwrap_or(ZYTEX_ASSET),
         };
 
         let decimals = {
@@ -425,8 +425,8 @@ impl XelisWallet {
 
         for transfer in transfers {
             let asset = match transfer.asset_hash {
-                None => XELIS_ASSET,
-                Some(value) => Hash::from_hex(value).unwrap_or(XELIS_ASSET),
+                None => ZYTEX_ASSET,
+                Some(value) => Hash::from_hex(value).unwrap_or(ZYTEX_ASSET),
             };
 
             let amount = self
@@ -468,7 +468,7 @@ impl XelisWallet {
             .await
             .context("Error while estimating fees")?;
 
-        if asset == XELIS_ASSET {
+        if asset == ZYTEX_ASSET {
             amount -= estimated_fees;
         }
 
@@ -497,8 +497,8 @@ impl XelisWallet {
 
         for transfer in transfers {
             let asset_hash = match transfer.asset_hash.clone() {
-                None => XELIS_ASSET,
-                Some(value) => Hash::from_hex(value).unwrap_or(XELIS_ASSET),
+                None => ZYTEX_ASSET,
+                Some(value) => Hash::from_hex(value).unwrap_or(ZYTEX_ASSET),
             };
 
             let amount = self
@@ -506,7 +506,7 @@ impl XelisWallet {
                 .await
                 .context("Error while converting amount to atomic format")?;
 
-            let asset_hex = transfer.asset_hash.unwrap_or_else(|| XELIS_ASSET.to_hex());
+            let asset_hex = transfer.asset_hash.unwrap_or_else(|| ZYTEX_ASSET.to_hex());
 
             match amounts.get(&asset_hex) {
                 None => {

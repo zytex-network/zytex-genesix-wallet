@@ -42,10 +42,10 @@ class _TransactionEntryWidgetState
 
     switch (entryType) {
       case CoinbaseEntry():
-        displayAmount = '+${formatXelis(entryType.reward)} XEL';
+        displayAmount = '+${formatXelis(entryType.reward)} ZTX';
       case BurnEntry():
         if (entryType.asset == xelisAsset) {
-          displayAmount = '-${formatXelis(entryType.amount)} XEL';
+          displayAmount = '-${formatXelis(entryType.amount)} ZTX';
         } else {
           // TODO: check asset decimal
           displayAmount = entryType.amount.toString();
@@ -54,7 +54,7 @@ class _TransactionEntryWidgetState
         if (entryType.transfers.length == 1) {
           var transfer = entryType.transfers[0];
           if (transfer.asset == xelisAsset) {
-            displayAmount = '+${formatXelis(transfer.amount)} XEL';
+            displayAmount = '+${formatXelis(transfer.amount)} ZTX';
           } else {
             // TODO: check asset decimal
             displayAmount = '+${transfer.amount.toString()}';
@@ -66,7 +66,7 @@ class _TransactionEntryWidgetState
         if (entryType.transfers.length == 1) {
           var transfer = entryType.transfers[0];
           if (transfer.asset == xelisAsset) {
-            displayAmount = '-${formatXelis(transfer.amount)} XEL';
+            displayAmount = '-${formatXelis(transfer.amount)} ZTX';
           } else {
             // TODO: check asset decimal
             displayAmount = '-${transfer.amount.toString()}';

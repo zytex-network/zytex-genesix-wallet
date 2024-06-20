@@ -5,8 +5,8 @@ import 'package:genesix/shared/theme/more_colors.dart';
 ThemeData darkTheme() {
   const textColor = Colors.white;
   var lineHeight = 1.2;
-  const primaryColor = Color.fromARGB(255, 216, 216, 216);
-  const secondaryColor = Color.fromARGB(255, 122, 203, 250);
+  const primaryColor = Color.fromARGB(255, 64, 188, 255);
+  const secondaryColor = Color.fromARGB(255, 64, 188, 255);
   const backgroundColor = Color.fromARGB(255, 19, 19, 19);
   var borderRadius = BorderRadius.circular(10.0);
 
@@ -79,7 +79,7 @@ ThemeData darkTheme() {
         backgroundColor: Colors.black12,
         //foregroundColor: primaryColor,
         side: const BorderSide(
-            color: Color.fromARGB(255, 122, 250, 211), width: 2),
+            color: Color.fromARGB(255, 107, 198, 250), width: 2),
         padding: const EdgeInsets.symmetric(
             vertical: Spaces.medium, horizontal: Spaces.medium),
         shape: RoundedRectangleBorder(
