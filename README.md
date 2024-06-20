@@ -11,6 +11,7 @@ This wallet harnesses the power of Rust by incorporating a native Rust library f
 - Send and receive ZYTEX tokens easily
 - Support for multiple platforms, including:
   - Windows
+  - Linux
   - macOS
   
 
